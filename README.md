@@ -17,6 +17,8 @@ Each table of the Database will be stored in a different text file.
     - `INSERT INTO table_name (column1_name,…) VALUES (value1,…)` 
     - `CREATE TABLE table_name (column1_name,…)` 
     - `SELECT * FROM table_name` 
+    - `SELECT * FROM table_name ORDER BY column1_name ASC`, instead of `ASC`, `DESC` can be used
+    - `SELECT * FROM table_name WHERE condition`, where condition can be `==`, `>`, `>=`, `<` or `<=`
     - `SELECT column1_name,… FROM table_name` 
     - `SELECT column1_name,… FROM table_name WHERE condition`, where condition can be `==`, `>`, `>=`, `<` or `<=`
     - `SELECT column1_name,… FROM table_name ORDER BY column2_name ASC`, instead of `ASC`, `DESC` can be used
