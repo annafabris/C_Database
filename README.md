@@ -44,6 +44,7 @@ ROW value2,...;
 
 ### Data
 In order to better manage the database tables, we chose to rely on a data structure that consists in a dynamic array of pointers, each of which identifies an array of strings corresponding to the values of each column in the row.
+
 Below an example of a possible table and how it is stored by the program.
 
 | Surname |  Name |  Phone |
