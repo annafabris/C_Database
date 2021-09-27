@@ -1,0 +1,88 @@
+CREATE TABLE rubric (surname,name,phone
+CREATE TABLE rubric (,name,phone)
+CREATE TABLE rubric (surname,,phone)
+CREATE TABLE rubric surname,name,phone
+CREATE TABLE rubric (Data Nascita,name,surname)
+CREATE TABLE rubric (surname,name,phone)
+CREATE TABLE rubric (surname,name,phone)
+CREATE 
+CREATE TABLE
+CREATE TABLE rubric
+
+INSERT INTO rubric (surname,name,phone) VALUES (Bianchi,Mario,3333333333)
+INSERT INTO rubric (surname,name,phone) VALUES (Rossi,Paolo,4444444444)
+INSERT INTO rubric (surname,name,phone) VALUES (Verdi,Giada,555555555)
+INSERT INTO rubric (surname,name,phone) VALUES (Blu,65644948)
+INSERT INTO rubric (surname,name,phone) VALUES (Blu,Anna,666666666)
+INSERT INTO rubric (surname,name,phone) VALUES (Di Giallo,Marco,564984846)
+INSERT INTO rubric (surname,name,phone) VALUES (Rossi,Giallo Marco,181651843)
+INSERT INTO rubric (surname,name,phone) VALUES (Viola,Giuseppe,214898)
+INSERT INTO rubric (surname,,phone) VALUES (Blu,Anna,666666666)
+INSERT INTO rubric (,name,phone)VALUES (Blu,Anna,666666666)
+INSERT INTO rubric surname,name,phone VALUES (Viola,Giuseppe,214898)
+INSERT INTO rubric (surname,name,phone VALUES (Viola,Giuseppe,214898)
+INSERT INTO rubric surname,name,phone) VALUES (Viola,Giuseppe,214898)
+INSERT INTO rubric (surname,name,phone) VALUES Viola,Giuseppe,214898
+INSERT INTO rubric (surname,name,phone) VALUES Viola,Giuseppe,214898)
+INSERT INTO rubric (surname,name,phone) VALUES (Viola,Giuseppe,214898
+INSERT INTO rubric 
+INSERT INTO
+INSERT
+INSERT INTO rubric (surname,name,phone)
+INSERT INTO rubric (surname,name,phone) VALUES 
+INSERT INTO rubric (surname,name) VALUES (Viola,Giuseppe,214898)
+
+SELECT
+SELECT *
+SELECT * FROM
+SELECT * FROM teachers
+SELECT * FROM rubric
+SELECT * FROM rubric ORDER
+SELECT * FROM rubric ORDER BY 
+SELECT * FROM rubric ORDER BY 
+SELECT * FROM rubric ORDER BY surname,name ASC
+SELECT * FROM rubric ORDER BY surname ASC
+SELECT * FROM rubric ORDER BY surname DESC
+SELECT * FROM rubric WHERE 
+SELECT * FROM rubric WHERE surname == Rossi
+SELECT * FROM rubric WHERE id == Rossi
+
+SELECT surname
+SELECT surname,name FROM
+SELECT surname,name FROM rubric  
+SELECT surname FROM rubric
+SELECT name FROM rubric
+SELECT phone FROM rubric
+SELECT surname,phone FROM rubric   
+SELECT name,phone FROM rubric     
+SELECT id FROM rubric 
+SELECT ,name FROM rubric
+SELECT name, FROM rubric
+SELECT name, ,surname FROM rubric
+SELECT name,,surname FROM rubric
+SELECT surname,phone FROM rubric ORDER BY surname ASC
+SELECT surname,phone FROM rubric ORDER BY surname DESC
+SELECT surname,phone FROM rubric ORDER BY surname,id ASC
+SELECT surname,id,phone FROM rubric ORDER BY id DESC
+SELECT surname,phone FROM rubric ORDER BY id DESC
+SELECT surname,name FROM rubric WHERE name == Giada
+SELECT id FROM rubric WHERE id == Giada
+SELECT surname,name FROM rubric WHERE
+SELECT surname,phone FROM rubric ORDER 
+SELECT surname,phone FROM rubric ORDER BY 
+SELECT surname,, FROM rubric ORDER BY name ASC
+SELECT surname FROM rubric WHERE id == Giada
+SELECT name FROM rubric GROUP BY surname
+SELECT name FROM rubric GROUP BY name
+
+CREATE TABLE students (id,name,surname,age)
+
+INSERT INTO students (id,name,surname,age) VALUES (1234,Mario,Rossi,21)
+INSERT INTO students (id,name,surname,age) VALUES (4321,Giada,Verdi,20)
+INSERT INTO students (id,name,surname,age) VALUES (8321,Blu,Anna,20)
+INSERT INTO students (id,name,surname,age) VALUES (5852,Di Giallo,Marco,19)
+INSERT INTO students (id,name,surname,age) VALUES (5545,Rossi,Giallo Marco,23)
+
+
+
+
