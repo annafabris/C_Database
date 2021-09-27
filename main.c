@@ -1,4 +1,4 @@
-#include "lib.h"
+#include "src/lib.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,7 +10,7 @@ int main()
 
 	printf("\t\tThe queries correctly executed from the file Query.txt will now be printed: \n\n");
 
-    FILE* file = fopen("queries.txt", "r");
+    FILE* file = fopen("data/queries.txt", "r");
     char line[256];
     while (fgets(line, sizeof(line), file)) {
     	line[strcspn(line, "\n")] = 0;
@@ -23,3 +23,5 @@ int main()
 	//getchar();
 	return 0;
 }
+
+
