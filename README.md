@@ -51,4 +51,4 @@ In order to better manage the database tables, we chose to rely on a data struct
 |  Rossi  | Paolo | 777777 |
 |   ...   |  ...  |   ...  |
 
-![Alt text](C_Database?raw=true)
+![Alt text](C_Database.png?raw=true)
