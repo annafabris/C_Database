@@ -45,10 +45,12 @@ ROW value2,...;
 ### Data
 In order to better manage the database tables, we chose to rely on a data structure that consists in a dynamic array of pointers, each of which identifies an array of strings corresponding to the values of each column in the row.
 
+<center>
 | Surname |  Name |  Phone |
 |:-------:|:-----:|:------:|
 | Bianchi | Mario | 123456 |
-|  Rossi  | Paolo | 777777 |
+|  Rossi  | Paolo | 43215 |
 |   ...   |  ...  |   ...  |
+<\center>
 
 ![Alt text](C_Database.png?raw=true)
