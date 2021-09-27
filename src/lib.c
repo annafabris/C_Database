@@ -1,4 +1,4 @@
-#include "lib.h"
+#include "src/lib.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -170,13 +170,13 @@ void Swap(char ***a, char ***b)
 /*funzione richiamata ricorsivamente da HeapSort*/
 void Heapify(char*** table, int numero_righe, int i, int numero_colonna)
 {
-	int largest = i;		// l'elemento pi˘ grande = radice
+	int largest = i;		// l'elemento pi√π grande = radice
 	int l = 2 * i + 1;		// left = 2*i + 1
 	int r = 2 * i + 2;		// right = 2*i + 2
 	unsigned int j = 0;
 	bool isANumber = true;
 
-	//Controllo se il valore Ë un numero o una stringa
+	//Controllo se il valore √® un numero o una stringa
 	while (j < strlen(table[i][numero_colonna]))
 	{
 		if (!isdigit(table[i][numero_colonna][j]))
@@ -187,7 +187,7 @@ void Heapify(char*** table, int numero_righe, int i, int numero_colonna)
 		j++;
 	}
 
-	// Se il figlio di sinistra Ë maggiore della radice
+	// Se il figlio di sinistra √® maggiore della radice
 	if (isANumber == true)
 	{
 		if (l < numero_righe && atoi(table[l][numero_colonna]) > atoi(table[largest][numero_colonna]))
@@ -199,7 +199,7 @@ void Heapify(char*** table, int numero_righe, int i, int numero_colonna)
 			largest = l;
 	}
 
-	// Se il figlio di destra Ë maggiore dell'elemento pi˘ grande
+	// Se il figlio di destra √® maggiore dell'elemento pi√π grande
 	if (isANumber == true)
 	{
 		if (r < numero_righe && atoi(table[r][numero_colonna]) > atoi(table[largest][numero_colonna]))
@@ -211,7 +211,7 @@ void Heapify(char*** table, int numero_righe, int i, int numero_colonna)
 			largest = r;
 	}
 
-	// Se l'elemento pi˘ grande non Ë la radice
+	// Se l'elemento pi√π grande non √® la radice
 	if (largest != i)
 	{
 		Swap(&table[i], &table[largest]);
@@ -244,7 +244,7 @@ void HeapSort(char ***table, int numero_righe, int numero_colonna)
 
 
 /*funzioni utili alle funzioni principali*/
-/*Controlla se esiste gi‡ un file con tale nome */
+/*Controlla se esiste gi√† un file con tale nome */
 bool ControlloEsistenzaFile(char * nome_file)
 {
 	FILE *fpt;
@@ -262,7 +262,8 @@ char* Appendtxt(char* nome_tabella)
 	nomeFile = (char *)malloc((5 + strlen(nome_tabella)) * sizeof(char));
 	if (nomeFile == NULL)
 		return NULL;
-	strcpy(nomeFile, nome_tabella);
+	strcpy(nomeFile, "results/");
+	strcat(nomeFile, nome_tabella);
 	strcat(nomeFile, ".txt");			//aggiungo .txt al nome della tabella per creare il file
 	return nomeFile;
 }
@@ -329,7 +330,7 @@ bool ControllaColonne(char* nome_tabella, char* colonne_inserite)
 	}	
 }
 
-/*Conta il numero di virgole all'interno della stringa colonne cosÏ da stabilire il numero di colonne*/
+/*Conta il numero di virgole all'interno della stringa colonne cos√¨ da stabilire il numero di colonne*/
 int NumeroColonne(char* nome_colonne)
 {
 	int i, count = 0, lunghezza;
@@ -453,7 +454,7 @@ char * SplitString(char * str, const char * delimiters, char ** sptr)
 		*sptr = str;
 		return *sptr;
 	}
-	/*ritorna errore se  sono stati inseriti pi˘ di 5 delimitatori*/
+	/*ritorna errore se  sono stati inseriti pi√π di 5 delimitatori*/
 	if (n > 5)
 	{
 		printf("\nERROR: The number of delimiters excede the prefixed amount\n");
@@ -471,7 +472,7 @@ char * SplitString(char * str, const char * delimiters, char ** sptr)
 		delimiter[i] = delimiters[i];
 	}
 
-	/*Caso primo carrattere della stringa Ë un carattere delimitatore*/
+	/*Caso primo carrattere della stringa √® un carattere delimitatore*/
 	if (str[0] == delimiter[0] || str[0] == delimiter[1] || str[0] == delimiter[2] || str[0] == delimiter[3] || str[0] == delimiter[4])
 	{
 		*sptr = &(str[1]);
@@ -582,12 +583,12 @@ int TipoSelect(char** query_inserita)
 {
 	char * tipo;
 
-	/*Se Ë una select senza filtri ritorno NOFILTER*/
+	/*Se √® una select senza filtri ritorno NOFILTER*/
 	if (*query_inserita == NULL)
 		return NOFILTER;
 
 	tipo = SplitString(*query_inserita, " ", query_inserita);
-	/*Se È una order by ritorna ORDER*/
+	/*Se √© una order by ritorna ORDER*/
 
 	if (tipo == NULL)
 		return NONE;
@@ -613,7 +614,7 @@ int TipoSelect(char** query_inserita)
 		}
 	}
 
-	/*Se È una group by ritorna GROUP*/
+	/*Se √© una group by ritorna GROUP*/
 	if (!strcmp(tipo, "GROUP"))
 	{
 		free(tipo);
@@ -630,7 +631,7 @@ int TipoSelect(char** query_inserita)
 		}
 	}
 
-	/*Se È una group by ritorna WHERE*/
+	/*Se √© una group by ritorna WHERE*/
 	if (!strcmp(tipo, "WHERE"))
 	{
 		free(tipo);
@@ -735,7 +736,7 @@ bool executeQuery(char* query_inserita)
 				return false;
 		}
 		comando = SplitString(query_inserita, " ", &query_inserita);
-		//controllo se il campo Ë NULL
+		//controllo se il campo √® NULL
 		if (comando == NULL)
 			return false;
 		if (!strcmp(comando, "FROM"))
@@ -834,14 +835,14 @@ bool CreateTable(char* nome_tabella, char* nomi_colonne)
 	if (nomeFile == NULL)
 		return false;
 
-	/*Prima di creare il file controllo se esiste gi‡ un file con tale nome*/
+	/*Prima di creare il file controllo se esiste gi√† un file con tale nome*/
 	esiste = ControlloEsistenzaFile(nomeFile);
 	if (esiste == false)
 	{
-		fpt = fopen(nomeFile, "w");		//aprendo il file in modalit‡ lettura ("w") il file viene creato
+		fpt = fopen(nomeFile, "w");		//aprendo il file in modalit√† lettura ("w") il file viene creato
 		if (fpt == NULL)
 			return false;
-		fprintf(fpt, "TABLE %s COLUMNS %s;\n", nome_tabella, nomi_colonne); //scrittura riga: TABLE nome_tabella COLUMNS nome_colonna1,nome_colonna2,Ö;
+		fprintf(fpt, "TABLE %s COLUMNS %s;\n", nome_tabella, nomi_colonne); //scrittura riga: TABLE nome_tabella COLUMNS nome_colonna1,nome_colonna2,‚Ä¶;
 		fclose(fpt);
 		free(nomi_colonne); 
 		free(nome_tabella); 
@@ -864,11 +865,11 @@ bool InsertIntoTable(char* nome_tabella, char* valori_colonne)
 	if (nomeFile == NULL)
 		return false;
 
-	fpt = fopen(nomeFile, "a");		//apro il file in modalit‡ 'append'
+	fpt = fopen(nomeFile, "a");		//apro il file in modalit√† 'append'
 	if (fpt == NULL)
 		return false;
 
-	fprintf(fpt, "ROW %s; \n", valori_colonne);	//scrittura riga: ROW valore1,valore2,valore3,Ö;
+	fprintf(fpt, "ROW %s; \n", valori_colonne);	//scrittura riga: ROW valore1,valore2,valore3,‚Ä¶;
 	free(valori_colonne); 
 	free(nomeFile);
 	free(nome_tabella); 
@@ -883,7 +884,7 @@ bool NoFilterSearch1(char* nome_tabella)
 	char *nomeFile;
 	FILE *fpt1, *fpt2;
 
-	//Allocazione stringa contenente il nome del file in cui Ë salvata la tabella
+	//Allocazione stringa contenente il nome del file in cui √® salvata la tabella
 	nomeFile = Appendtxt(nome_tabella);
 	if (nomeFile == NULL)
 		return false;
@@ -893,7 +894,7 @@ bool NoFilterSearch1(char* nome_tabella)
 	if (fpt1 == NULL)
 		return false;
 
-	fpt2 = fopen("queries_results.txt", "a");
+	fpt2 = fopen("results/queries_results.txt", "a");
 	if (fpt2 == NULL)
 		return false;
 
@@ -925,7 +926,7 @@ bool NoFilterSearch2(char* nome_tabella, char* nomi_colonne_selezionate)
 	char *str, **colonne, *colonneSelezionate[20], *colonneDati[20], *nomeFile, *temp, *sptr;
 	FILE *fpt1, *fpt2;
 
-	//Allocazione stringa contenente il nome del file in cui Ë salvata la tabella
+	//Allocazione stringa contenente il nome del file in cui √® salvata la tabella
 	nomeFile = Appendtxt(nome_tabella);
 	if (nomeFile == NULL)
 		return false;
@@ -935,7 +936,7 @@ bool NoFilterSearch2(char* nome_tabella, char* nomi_colonne_selezionate)
 	if (fpt1 == NULL)
 		return false;
 
-	fpt2 = fopen("queries_results.txt", "a");
+	fpt2 = fopen("results/queries_results.txt", "a");
 	if (fpt2 == NULL)
 		return false;
 
@@ -1016,7 +1017,7 @@ bool NoFilterSearch2(char* nome_tabella, char* nomi_colonne_selezionate)
 		}
 		nColonne = i; 
 
-		//Stampa la parte "ROW " e successivamente solo i valori corrispondenti agli indici delle colonne selezionate seguiti da "," o da ";" a seconda se si Ë o meno a fine riga
+		//Stampa la parte "ROW " e successivamente solo i valori corrispondenti agli indici delle colonne selezionate seguiti da "," o da ";" a seconda se si √® o meno a fine riga
 		fprintf(fpt2, "ROW ");
 		for (i = 0; i < nColonneSelezionate; i++)
 		{
@@ -1059,7 +1060,7 @@ bool OrderBy(char* colonna, char* nome_tabella, char* ordine)
 	if (strcmp(ordine, "ASC") && strcmp(ordine, "DESC"))
 		return false;
 
-	//Allocazione stringa contenente il nome del file in cui Ë salvata la tabella
+	//Allocazione stringa contenente il nome del file in cui √® salvata la tabella
 	nomeFile = Appendtxt(nome_tabella);
 	if (nomeFile == NULL)
 		return false;
@@ -1068,7 +1069,7 @@ bool OrderBy(char* colonna, char* nome_tabella, char* ordine)
 	if (nomeColonne == NULL)
 		return false;
 
-	/*Creo la struttura dati dal file che andrÚ poi ad ordinare*/
+	/*Creo la struttura dati dal file che andr√≤ poi ad ordinare*/
 	testa = LoadTable(nomeFile, nColonne, &nRighe);
 	if (testa == NULL)
 		return false;
@@ -1088,7 +1089,7 @@ bool OrderBy(char* colonna, char* nome_tabella, char* ordine)
 	HeapSort(testa, nRighe, posizione);
 
 	/*Apro il file in scrittura*/
-	fpt = fopen("queries_results.txt", "a");
+	fpt = fopen("results/queries_results.txt", "a");
 	if (fpt == NULL)
 		return false;
 
@@ -1178,7 +1179,7 @@ bool OrderBy2(char* colonna, char* nome_tabella, char* ordine, char *colonne_da_
 	if (strcmp(ordine, "ASC") && strcmp(ordine, "DESC"))
 		return false;
 
-	//Allocazione stringa contenente il nome del file in cui Ë salvata la tabella
+	//Allocazione stringa contenente il nome del file in cui √® salvata la tabella
 	nomeFile = Appendtxt(nome_tabella);
 	if (nomeFile == NULL)
 		return false;
@@ -1216,7 +1217,7 @@ bool OrderBy2(char* colonna, char* nome_tabella, char* ordine, char *colonne_da_
 	if (trovato == false)
 		return false;
 
-	/*Creo la struttura dati dal file che andrÚ poi ad ordinare*/
+	/*Creo la struttura dati dal file che andr√≤ poi ad ordinare*/
 	testa = LoadTable(nomeFile, nColonne, &nRighe);
 	if (testa == NULL)
 		return false;
@@ -1236,7 +1237,7 @@ bool OrderBy2(char* colonna, char* nome_tabella, char* ordine, char *colonne_da_
 	HeapSort(testa, nRighe, posizione);
 
 	/*Apro il file in scrittura*/
-	fpt = fopen("queries_results.txt", "a");
+	fpt = fopen("results/queries_results.txt", "a");
 	if (fpt == NULL)
 		return false;
 
@@ -1310,7 +1311,7 @@ bool GroupBy(char* colonna, char* nome_tabella)
 	int nRighe, nColonne, i, posizione, j, *count;
 	FILE *fpt;
 
-	//Allocazione stringa contenente il nome del file in cui Ë salvata la tabella
+	//Allocazione stringa contenente il nome del file in cui √® salvata la tabella
 	nomeFile = Appendtxt(nome_tabella);
 	if (nomeFile == NULL)
 		return false;
@@ -1319,7 +1320,7 @@ bool GroupBy(char* colonna, char* nome_tabella)
 	if (nomeColonne == NULL)
 		return false;
 
-	/*Creo la struttura dati dal file che andrÚ poi ad ordinare*/
+	/*Creo la struttura dati dal file che andr√≤ poi ad ordinare*/
 	testa = LoadTable(nomeFile, nColonne, &nRighe);
 	if (testa == NULL)
 		return false;
@@ -1368,7 +1369,7 @@ bool GroupBy(char* colonna, char* nome_tabella)
 	}
 
 	/*Apro il file in scrittura*/
-	fpt = fopen("queries_results.txt", "a");
+	fpt = fopen("results/queries_results.txt", "a");
 	if (fpt == NULL)
 		return false;
 
@@ -1415,7 +1416,7 @@ bool Where(char* nome_tabella, char* condition)
 	char ***table;
 	FILE *fpt1, *fpt2;
 
-	//Allocazione stringa contenente il nome del file in cui Ë salvata la tabella
+	//Allocazione stringa contenente il nome del file in cui √® salvata la tabella
 	nomeFile = Appendtxt(nome_tabella);
 	if (nomeFile == NULL)
 		return false;
@@ -1425,7 +1426,7 @@ bool Where(char* nome_tabella, char* condition)
 	if (fpt1 == NULL)
 		return false;
 
-	fpt2 = fopen("queries_results.txt", "a");
+	fpt2 = fopen("results/queries_results.txt", "a");
 	if (fpt2 == NULL)
 		return false;
 
@@ -1526,7 +1527,7 @@ bool Where(char* nome_tabella, char* condition)
 		for (i = 0; i < nRighe; i++)
 		{
 			str = StringCopy(table[i][index]);
-			//Controllo se il valore Ë un numero
+			//Controllo se il valore √® un numero
 			k = 0;
 			while (k < strlen(str))
 			{
@@ -1585,7 +1586,7 @@ bool Where(char* nome_tabella, char* condition)
 		for (i = 0; i < nRighe; i++)
 		{
 			str = StringCopy(table[i][index]);
-			//Controllo se il valore Ë un numero
+			//Controllo se il valore √® un numero
 			k = 0;
 			while (k < strlen(str))
 			{
@@ -1644,7 +1645,7 @@ bool Where(char* nome_tabella, char* condition)
 		for (i = 0; i < nRighe; i++)
 		{
 			str = StringCopy(table[i][index]);
-			//Controllo se il valore Ë un numero
+			//Controllo se il valore √® un numero
 			k = 0;
 			while (k < strlen(str))
 			{
@@ -1703,7 +1704,7 @@ bool Where(char* nome_tabella, char* condition)
 		for (i = 0; i < nRighe; i++)
 		{
 			str = StringCopy(table[i][index]);
-			//Controllo se il valore Ë un numero
+			//Controllo se il valore √® un numero
 			k = 0;
 			while (k < strlen(str))
 			{
@@ -1786,7 +1787,7 @@ bool Where2(char* nome_tabella, char* nomi_colonne_selezionate, char* condition)
 	char ***table;
 	FILE *fpt1, *fpt2;
 
-	//Allocazione stringa contenente il nome del file in cui Ë salvata la tabella
+	//Allocazione stringa contenente il nome del file in cui √® salvata la tabella
 	nomeFile = Appendtxt(nome_tabella);
 	if (nomeFile == NULL)
 		return false;
@@ -1796,7 +1797,7 @@ bool Where2(char* nome_tabella, char* nomi_colonne_selezionate, char* condition)
 	if (fpt1 == NULL)
 		return false;
 
-	fpt2 = fopen("queries_results.txt", "a");
+	fpt2 = fopen("results/queries_results.txt", "a");
 	if (fpt2 == NULL)
 		return false;
 
@@ -1882,7 +1883,7 @@ bool Where2(char* nome_tabella, char* nomi_colonne_selezionate, char* condition)
 		for (i = 0; i < nRighe; i++)
 		{
 			str = StringCopy(table[i][index]);
-			//Controllo se il valore Ë un numero
+			//Controllo se il valore √® un numero
 			k = 0;
 			while (k < strlen(str))
 			{
@@ -1941,7 +1942,7 @@ bool Where2(char* nome_tabella, char* nomi_colonne_selezionate, char* condition)
 		for (i = 0; i < nRighe; i++)
 		{
 			str = StringCopy(table[i][index]);
-			//Controllo se il valore Ë un numero
+			//Controllo se il valore √® un numero
 			k = 0;
 			while (k < strlen(str))
 			{
@@ -2000,7 +2001,7 @@ bool Where2(char* nome_tabella, char* nomi_colonne_selezionate, char* condition)
 		for (i = 0; i < nRighe; i++)
 		{
 			str = StringCopy(table[i][index]);
-			//Controllo se il valore Ë un numero
+			//Controllo se il valore √® un numero
 			k = 0;
 			while (k < strlen(str))
 			{
@@ -2059,7 +2060,7 @@ bool Where2(char* nome_tabella, char* nomi_colonne_selezionate, char* condition)
 		for (i = 0; i < nRighe; i++)
 		{
 			str = StringCopy(table[i][index]);
-			//Controllo se il valore Ë un numero
+			//Controllo se il valore √® un numero
 			k = 0;
 			while (k < strlen(str))
 			{
